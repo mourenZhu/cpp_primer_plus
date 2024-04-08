@@ -14,11 +14,11 @@ public:
 
     explicit Student(const std::string &s) : std::string(s), ArrayDb() {}
 
-    explicit Student(int n) : std::string("Nully"), scores(n) {}
+    explicit Student(int n) : std::string("Nully"), ArrayDb(n) {}
 
-    Student(const std::string &s, const ArrayDb &a) : std::string(s), scores(a) {}
+    Student(const std::string &s, const ArrayDb &a) : std::string(s), ArrayDb(a) {}
 
-    Student(const char *str, const double *pd, int n) : std::string(str), scores(pd, n) {}
+    Student(const char *str, const double *pd, int n) : std::string(str), ArrayDb(pd, n) {}
 
     ~Student() {}
 
