@@ -50,8 +50,30 @@ int main() {
                 badchars += letter;
             } else {
                 cout << "Good guess!\n";
-//                attempt[loc]
+                attempt[loc] = letter;
+                loc = target.find(letter, loc + 1);
+                while (loc != string::npos) {
+                    attempt[loc] = letter;
+                    loc = target.find(letter, loc + 1);
+                }
+            }
+            cout << "Your word: " << attempt << endl;
+            if (attempt != target) {
+                if (badchars.length() > 0)
+                    cout << "Bad choices: " << badchars << endl;
+                cout << guesses << " bad guesses left\n";
             }
         }
+        if (guesses > 0)
+            cout << "That's right\n";
+        else
+            cout << "Sorry, the word is " << target << ".\n";
+        cout << "Will you play another? <y/n> ";
+        cin >> play;
+        play = tolower(play);
     }
+
+    cout << "Bye\n";
+
+    return 0;
 }
